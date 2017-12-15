@@ -2,6 +2,12 @@
 
 > A Vue.js project of Backstage management system
 
+```
+1.使用element-ui(白垩版)作为ui库
+2.使用axios作为请求工具
+3.
+```
+
 ## Build Setup
 
 ``` bash

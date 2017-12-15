@@ -1,0 +1,23 @@
+.lady-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid $ladytheme;
+  .lady-rightbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .user-photo {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 100px;
+  }
+}
+.lady-aside-container .lady-aside{
+  border-right: 1px solid $ladytheme;
+}
+.lady-aside-container .lady-aside .lady-aside-bar {
+  color: $ladytheme;
+}
