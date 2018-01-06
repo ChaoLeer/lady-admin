@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "element-ui": "^2.0.7",
+    "element-ui": "^2.0.10",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.7.2",
     "normalize.css": "^7.0.0",

@@ -1,8 +1,12 @@
+html,body{
+  height: 100%;
+}
 .lady-header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid $ladytheme;
+  // border-bottom: 1px solid $ladytheme;
+  border-bottom: 1px solid #e6e6e6;
   .lady-rightbar{
     display: flex;
     align-items: center;
@@ -16,8 +20,42 @@
   }
 }
 .lady-aside-container .lady-aside{
-  border-right: 1px solid $ladytheme;
+  // border-right: 1px solid $ladytheme;
 }
 .lady-aside-container .lady-aside .lady-aside-bar {
   color: $ladytheme;
+}
+// scroll
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  // background-color: #f1f1f1;
+  // border-left: 1px solid #e7e7e7;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #bcbcbc;
+  background-clip: padding-box;
+  border: 3px solid hsla(0,0%,100%,0);
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-radius: 10px;
+  min-height: 10px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+::-webkit-scrollbar {
+  width: 15px;
+  height: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+// selection
+:root:root ::selection {
+  background: #777;
+  color: #fff;
 }

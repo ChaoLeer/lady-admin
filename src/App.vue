@@ -36,16 +36,19 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    display: flex;
     .lady-aside-container{
       position: fixed;
       top: 60px;
       left: 0;
       height: 100%;
       width: auto;
-      overflow-y: audo;
+      /* overflow-y: auto; */
     }
     .lady-aside {
       height: 100%;
+      /* overflow-y: auto; */
     }
   }
 </style>
