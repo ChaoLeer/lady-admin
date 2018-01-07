@@ -1,0 +1,65 @@
+// 图片徽章
+$position: top bottom right left;
+@mixin climb-badge-slot {
+  @each $after in $position {
+    .climb-badge-#{$after} {
+      // background: #000;
+      // margin-bottom: 12px;
+      // height: 30px;
+      position: absolute;
+    }
+    @if $after == top {
+      .climb-badge-#{$after} {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+      }
+    }
+    @if $after == bottom {
+      .climb-badge-#{$after} {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+      }
+    }
+    @if $after == left {
+      .climb-badge-#{$after} {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+      }
+    }
+    @if $after == right {
+      .climb-badge-#{$after} {
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 50%;
+      }
+    }
+  }
+}
+.climb-badge-wrapper{
+  position: relative;
+  background: transparent;
+  .climb-badge-main{
+    &,
+    &>img{
+      width: 100%;
+      height: 100%;
+    }
+    &.circle{
+      border-radius: 100%;
+      &>img{
+        border-radius: 100%;
+      }
+    }
+    &.hide{
+      overflow: hidden;
+    }
+  }
+  @include climb-badge-slot;
+}

@@ -1,0 +1,133 @@
+/*
+ * @Author: ChaoLeer
+ * @Date: 2017-09-06 16:23:15
+ * @Last Modified by: ChaoLeer
+ * @Last Modified time: 2017-09-06 16:23:36
+ * @Description: 组件drawer样式
+ */
+.climb-drawer-wrapper{
+  .animated{
+    animation-duration: .45s;
+  }
+  &.header-right{
+    .climb-drawer-header{
+      justify-content: flex-end;
+    }
+  }
+  &.header-center{
+    .climb-drawer-header{
+      justify-content: center;
+    }
+  }
+  &.header-justify{
+    .climb-drawer-header{
+      justify-content: space-between;
+    }
+  }
+
+  &.footer-right{
+    .climb-drawer-footer{
+      justify-content: flex-end;
+    }
+  }
+  &.footer-center{
+    .climb-drawer-footer{
+      justify-content: center;
+    }
+  }
+  &.footer-justify{
+    .climb-drawer-footer{
+      justify-content: space-between;
+    }
+  }
+
+  .climb-drawer{
+      position: fixed;
+      overflow: hidden;
+      margin: auto;
+      border-radius: 0;
+      z-index: 20;
+      background-color: #fff;
+      &.open {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        visibility: visible;
+      }
+      .climb-drawer-header{
+        height: 50px;
+        line-height: 50px;
+        background: #efefef;
+        border-bottom: 1px solid #cacaca;
+      }
+      .climb-drawer-body{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        overflow-y: auto;
+        &.hasfooter,
+        &.hasheader{
+          padding-bottom: 10px;
+          padding-top: 10px;
+        }
+        &.hasheader{
+          top: 50px;
+        }
+        &.hasfooter{
+          bottom: 52px;
+        }
+      }
+      .hasfooter,
+      .hasheader,
+      .climb-drawer-footer,
+      .climb-drawer-header{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .climb-drawer-footer,
+      .climb-drawer-header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: center
+      }
+      .climb-drawer-footer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 52px;
+        background: #efefef;
+        border-top: 1px solid #cacaca;
+      }
+      &.left{
+        top: 0;
+        left: 0;
+        bottom: 0;
+      }
+      &.right{
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+      &.open {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        visibility: visible;
+      }
+  }
+  .climb-paper {
+      box-shadow: 0 3px 10px rgba(0,0,0,.156863),0 3px 10px rgba(0,0,0,.227451);
+  }
+  .climb-cover{
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 98;
+      right: 0;
+      background: rgba(0, 0, 0, .5)
+  }
+}

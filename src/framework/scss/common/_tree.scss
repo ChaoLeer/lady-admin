@@ -1,0 +1,41 @@
+/*tree样式*/
+.c-tree{
+  font-size: 14px;
+  line-height: 28px;
+  li{
+    position: relative;
+  }
+  .ivu-tree-arrow{
+    // color: #97a8be;
+    font-size: 12px;
+    .ivu-icon{
+      margin-right: 6px;
+      // vertical-align: text-top;
+      // margin-top: 2px;
+      // &.ivu-icon-arrow-right-b{
+      //   // 收缩
+      //   &:before{
+      //     content: "\F217"
+      //   }
+      // }
+    }
+    &.ivu-tree-arrow-open i {
+      // transform: rotate(45deg);
+      // margin-top: 4px;
+    }
+  }
+  .ivu-tree-title{
+    height: 28px;
+    cursor: pointer;
+    padding: 0;
+    .tree-disc{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #898989;
+    }
+  }
+  .ivu-tree-children{
+    padding-left: 32px;
+  }
+}

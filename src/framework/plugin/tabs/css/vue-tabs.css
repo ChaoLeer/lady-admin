@@ -1,0 +1,165 @@
+.vue-tabs {
+  position: relative;
+}
+.tabs-list-wrapper {
+  padding: 8px 0 0; 
+  width:100%; 
+}
+.tabs-wrapper-top{
+  height: 26px;
+  background-image: url(../../../../../static/img/tabs.png);
+  background-repeat: repeat-x;
+  background-position: 0 -183px;
+}
+.tabs-list-box{
+  height: 26px;    
+  margin-right: 80px;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+.tabs-control{
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  height: 22px;
+  width: 50px;
+}
+.tabs-control .tabs-control-btn{  
+  float: left;
+  width: 50%;
+  height: 22px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 22px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.tabs-control .tabs-control-btn:hover{  
+    color: #333;
+    background-color: #dad9d9;
+    border-color: #c7c7c7;
+}
+.tabs-control .tabs-control-btn:last-child{
+  float: none;
+  display: block;
+  margin-left: 50%;
+}
+.tabs-list {
+  list-style: none;
+  margin: 0; 
+  height: 26px;
+  /*width: 2355px;*/
+  width: auto;
+  zoom: 1;
+  left: 0;
+  top: 0;
+  position: absolute;
+  overflow: visible;
+  /*background-color: #f4f4f4;*/
+  -webkit-transition: left .1s linear;
+  -moz-transition: left .1s linear;
+  -o-transition: left .1s linear;
+  transition: left .1s linear;
+}
+.tab-list::before{
+  display: table;
+  content: "";
+}
+.tab-list::after{
+  clear: both;
+}
+.tabs-list > li {
+    position: relative;
+    float: left;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0 30px;
+    white-space: nowrap;
+    color: #282828;
+    background-image: url(../../../../../static/img/tabs.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    
+}
+.tabs-list > li em { 
+    position: absolute;
+    width: 23px;
+    height: 29px;
+    right: -20px;
+    top: 0;
+    z-index: 50;
+    background-image: url(../../../../../static/img/tabs.png);
+    background-repeat: no-repeat;
+    background-position: right -30px;
+}
+.tabs-list > li em {
+    right: -16px;
+    height: 26px;
+    width: 16px;
+}
+.tabs-list > li.active {
+    color: #20a0ff;
+    /*background-color: #f4f4f4;*/
+    /*border: 1px solid #D3DCE6;*/
+    /*border-bottom-color: transparent;
+    border-radius: 4px 4px 0 0;  */
+    background-image: url(../../../../../static/img/tabs.png);
+    background-position: 0 -120px;
+    z-index: 99;
+}
+.tabs-list > li.active em{
+    background-position: right -150px;
+}
+.tabs-list > li.active .btn-close {
+    opacity: 1;  
+    color: #20a0ff;
+}
+.tabs-list > li:hover {
+  cursor: pointer;
+ }
+.tabs-list > li:hover .btn-close {
+  opacity: 1;
+}
+.tabs-list > li .btn-close {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  top: 2px;
+  right: 4px;
+  line-height: 12px;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  border-radius: 14px;
+  font-size: 14px;
+  color: #999;
+  transition: all 0.2s ease;
+}
+.tabs-list > li .btn-close:hover {
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background-color: #97a8be;     
+}
+.tabs-content-wrapper {
+  position: absolute;
+  top: 76px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+}
+/*.tabs-content-wrapper {
+    position: relative;
+}*/
+.tabs-content-wrapper .tabs-content {
+  display: none;
+}
+.tabs-content-wrapper .tabs-content.active {
+  display: block;
+}

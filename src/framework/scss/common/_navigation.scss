@@ -1,0 +1,117 @@
+.climb-con{
+  .nav-menu-bar{
+    float: left;
+    transition: all 0.3s ease-out;
+    &.ivu-menu-horizontal {
+      height: 50px;
+      line-height: 50px;
+    }
+    &.ivu-menu-light {
+      background: transparent;
+      // .ivu-menu-item-active{
+      //   color: #fff;
+      //   border-bottom: 2px solid #fff;
+      //   &:hover{
+      //     color: #fff;
+      //     border-bottom: 2px solid #fff;
+      //   }
+      // }
+    }
+    &.ivu-menu-horizontal {
+      height: 50px;
+      line-height: 50px;
+    }
+    @media screen and (max-width: 918px) {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      .ivu-menu-submenu,
+      .ivu-menu-item{
+        float: none;
+      }
+      .ivu-menu-submenu{
+        .ivu-select-dropdown{
+          position: static !important;
+        }
+      }
+    }
+  }
+  .rightbar{
+    @media screen and (max-width: 918px) {
+      .ivu-icon-android-color-palette{
+        display: none;
+      }
+    }
+  }
+  .nav-toggle-btn{
+    display: none;
+    @media screen and (max-width: 918px) {
+      display: block;
+    }
+  }
+}
+.main-content{
+  .climb-breadcrumb{
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    position: relative;
+    margin-top: -20px;
+    line-height: 40px;
+    padding-left: 10px;
+    margin-left: -20px;
+    background-color: lighten(#cacaca, 18%);
+    &>span:last-child {
+      font-weight: 500;
+    }
+  }
+  .climb-control-bar{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top:  50%;
+    transform: translateY(-50%);
+    right: 15px;
+    .climb-refresh{
+      cursor: pointer;
+    }
+    .tabs-control{
+      position: relative;
+      font-size: 14px;
+      margin-right: 6px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      [class^=tabs-control] {
+        flex: 1;
+        font-size: 16px;
+        width: 18px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        &:hover{
+          background: #eaeaea;
+          border: 1px solid #eaeaea;
+        }
+      }
+      .tabs-control-left{
+        // position: absolute;
+        // left: 0;
+        // border-right: 1px solid  #dddee1;
+        // border-left: 1px solid  #dddee1;
+      }
+      .tabs-control-right {
+        // position: absolute;
+        // right: 0;
+      }
+      // vertical-align: middle;
+    }
+  }
+
+  .ivu-back-top{
+    z-index: 99;
+  }
+}

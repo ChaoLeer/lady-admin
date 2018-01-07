@@ -1,0 +1,22 @@
+// 彩色模块
+$colorList: #74B7F9 #F6D069 #A7B2F7 #5DD5C7 #FB9278;
+// 将背景颜色值定义成变量
+$blue : #74B7F9;
+$yellow : #F6D069;
+$bluegreen : #A7B2F7;
+$green : #5DD5C7;
+$orange : #FB9278;
+
+// 定义一个list储存背景颜色
+.multicolor{
+  position: relative;
+  &>*{
+    $bgcolorlist: $blue $yellow $bluegreen $green $orange;
+    // 使用SASS for循环语句为每一个li设置background-color
+    @for $i from 1 to length($bgcolorlist)+1 {
+      &:nth-child(#{$i}) {
+        background-color: nth($bgcolorlist,$i);
+      }
+    }
+  }
+}

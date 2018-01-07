@@ -1,0 +1,170 @@
+.main {
+    .climb-con {
+        background: $backgroundColor;
+        .sidebar-collapse {
+            background: lighten($backgroundColor, 0%);
+            border-color: lighten($backgroundColor, 15%);
+            &:hover {
+                background: lighten($backgroundColor, 15%);
+            }
+        }
+        .nav-menu-bar{
+            &.ivu-menu-horizontal {
+                background: transparent;
+                .ivu-menu-item-active.ivu-menu-item-selected{
+                    background: darken($backgroundColor, 8%)
+                }
+                @media screen and (max-width: 918px) {
+                    float: none;
+                    .ivu-menu-item,
+                    .ivu-menu-submenu{
+                        background: $backgroundColor;
+                    }
+                }
+                .ivu-menu-item:hover,
+                .ivu-menu-submenu-title:hover {
+                    color: $white;
+                    background: $backgroundColor;
+                }
+                .ivu-menu-submenu .ivu-menu-item{
+                    color: $darkWhite;
+                    background: lighten($backgroundColor, 10%);
+                }
+                .ivu-menu-item.is-active,
+                .ivu-menu-item.is-active {
+                    color: $white;
+                }
+                .ivu-menu-item:hover {
+                    background-color: darken($backgroundColor, 8%);
+                }
+                .ivu-menu-submenu .ivu-menu-item:hover,
+                .ivu-menu-submenu-title:hover {
+                    color: $white;
+                    background-color: darken($backgroundColor, 8%);
+                }
+                .ivu-menu-submenu .ivu-menu-item:hover,
+                .ivu-menu-submenu-title:hover {
+                    background-color: darken($backgroundColor, 8%);
+                }
+            }
+            //     .ivu-menu-submenu,
+            //     &>.ivu-menu-item{
+            //         color: lighten($backgroundColor, 88%);
+            //         border-bottom: 2px solid lighten($backgroundColor, 88%);
+            //     }
+            //     .ivu-menu-item-active{ 
+            //         color: lighten($backgroundColor, 55%);
+            //         border-bottom: 2px solid lighten($backgroundColor, 55%);
+                    
+            //     }
+            //     .ivu-menu-submenu:hover,
+            //     &>.ivu-menu-item:hover{
+            //         color: lighten($backgroundColor, 88%);
+            //         border-bottom: 2px solid lighten($backgroundColor, 88%);
+            //     }
+            // }
+        }
+        .climb-logo {
+            color: lighten($backgroundColor, 80%);
+        }
+        .rightbar {
+            .closePic {
+                color: lighten($backgroundColor, 80%);
+                &:hover {
+                    color: lighten($backgroundColor, 100%);
+                }
+            }
+        }
+    }
+    .tabs-list {
+        &>li.active {
+            color: lighten($backgroundColor, 5%);
+            .btn-close {
+                color: lighten($backgroundColor, 5%);
+                top: 6px;
+                &:hover {
+                    color: lighten($backgroundColor, 80%);
+                    background-color: lighten($backgroundColor, 10%);
+                }
+            }
+        }
+        &>li {
+            .btn-close {
+                top: 6px;
+                &:hover {
+                    color: lighten($backgroundColor, 80%);
+                    background-color: lighten($backgroundColor, 10%);
+                }
+            }
+        }
+    }
+}
+
+// tabs框架下的首页
+.box {
+    border: 1px solid lighten($backgroundColor, 5%);
+    .box-title {
+        color: lighten($backgroundColor, 80%) !important;
+        background-color: lighten($backgroundColor, 5%);
+        border-bottom: 1px solid lighten($backgroundColor, 5%);
+    }
+    .ivu-tabs-ink-bar {
+        background-color: lighten($backgroundColor, 5%);
+    }
+    .ivu-tabs-nav .ivu-tabs-tab:hover {
+        color: lighten($backgroundColor, 5%);
+    }
+}
+
+// tabs框架下的左侧菜单
+.side-menu {
+    .ivu-menu-light.ivu-menu-vertical {
+        // .ivu-menu-item-active:not(.ivu-menu-submenu) {
+        //     // color: lighten($backgroundColor, 5%);
+        //     border-right: 0;
+        //     z-index: 2;
+        // }
+        // .ivu-menu-item.sm-active {
+        //     color: lighten($backgroundColor, 5%);
+        //     border-right: 2px solid lighten($backgroundColor, 5%);
+        // }
+        .ivu-menu-item-active{
+            &.ivu-menu-item-selected{
+                color: $white;
+                background-color: darken($backgroundColor, 8%);
+                // color: darken($backgroundColor, 5%);
+                border-right: 0px solid darken($backgroundColor, 5%);
+            }
+        }
+    }
+    &,
+    .ivu-menu{
+        color: $darkWhite;
+        background: lighten($backgroundColor, 8%);
+        .ivu-menu-submenu .ivu-menu-item{
+            color: $darkWhite;
+            background: lighten($backgroundColor, 10%);
+        }
+        .ivu-menu-item.is-active,
+        .ivu-menu-item.is-active {
+            color: $white;
+        }
+        &,
+        &>.ivu-menu-item:last-child {
+            border-bottom: 1px solid lighten($backgroundColor, 8%);
+        }
+        .ivu-menu-item,
+        .ivu-menu-submenu {
+            border-top: 1px solid lighten($backgroundColor, 10%);
+        }
+        .ivu-menu-item:hover,
+        .ivu-menu-submenu .ivu-menu-item:hover,
+        .ivu-menu-submenu-title:hover {
+            color: $white;
+            background-color: darken($backgroundColor, 8%);
+        }
+    }
+}
+.climb-not-found{
+    color: $backgroundColor
+}

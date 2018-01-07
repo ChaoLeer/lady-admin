@@ -1,30 +1,32 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header class="lady-header">
-        <lady-logo></lady-logo>
-        <lady-rightbar></lady-rightbar>
-      </el-header>
-      <el-container>
-        <div class="lady-aside-container">
-          <lady-aside></lady-aside>
-        </div>
-        <el-main>Main</el-main>
-      </el-container>
-    </el-container>
+    <router-view v-if="isAccess"></router-view>
+    <div v-else class="lady-welcome">
+      <div style="font-size: 30px;margin-top: 80px;text-align: center;">
+        欢迎使用lady前端admin后台管理系统
+        <p><small>正在验证您的访问权限...</small></p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import LadyLogo from './components/logo/logo.vue'
-  import LadyAside from './components/aside/aside.vue'
-  import LadyRightbar from './components/rightbar/rightbar.vue'
   export default {
     name: 'LadyApp',
-    components: {
-      LadyLogo,
-      LadyAside,
-      LadyRightbar
+    data () {
+      return {
+        isAccess: false
+      }
+    },
+    created () {
+      let vm = this
+      // 验证权限
+      // 获取菜单
+      setTimeout(function () {
+        vm.isAccess = true
+        console.info(vm.$route.path)
+        vm.$router.push(vm.$route.path)
+      }, 3000)
     }
   }
 </script>
@@ -50,5 +52,8 @@
       height: 100%;
       /* overflow-y: auto; */
     }
+  }
+  .lady-welcome{
+    flex: 1;
   }
 </style>

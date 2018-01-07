@@ -19,11 +19,39 @@ html,body{
     border-radius: 100px;
   }
 }
-.lady-aside-container .lady-aside{
-  // border-right: 1px solid $ladytheme;
+.lady-aside-container{
+  .lady-aside.el-menu--collapse{
+    // border-right: 1px solid $ladytheme;
+    .el-tooltip,
+    .el-submenu__title{
+      text-align: center;
+    }
+  }
 }
 .lady-aside-container .lady-aside .lady-aside-bar {
   color: $ladytheme;
+}
+.backtop {
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  z-index: 30;
+  width: 52px;
+  height: 52px;
+  background: rgba(0, 0, 0, .4);
+  line-height: 52px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  i{
+    // font-size: 30px;
+    vertical-align: middle;
+    color: #fff;
+  }
 }
 // scroll
 ::-webkit-scrollbar-track {

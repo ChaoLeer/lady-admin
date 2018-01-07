@@ -1,0 +1,40 @@
+.climb-grid{
+  width: 100%;
+  background: #fff;
+  position: relative;
+  .ivu-table{
+    &:before{
+      background-color: transparent;
+    }
+  }
+  .info{
+    padding: 12px 0;
+  }
+  .cgrid-load{
+    position: fixed;
+    right: 0;
+    top: 88px;
+  }
+  .ms-tree-space {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    width: 14px;
+    height: 14px;
+  }
+  tr td,
+  tr th{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .ms-tree-space::before {
+    content: ''
+  }
+  .c-toggle-btn{
+    /*font-size: 16px;*/
+    cursor: pointer;
+  }
+}
