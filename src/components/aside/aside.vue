@@ -9,9 +9,10 @@
   <el-menu ref="ladyMenu" router unique-opened
     :default-active="ladyDefaultActive"
     class="lady-aside" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-    <li class="lady-aside-bar" @click="toggleAsideHandler" >
+    <!-- <li class="lady-aside-bar" @click="toggleAsideHandler" >
       <el-icon :class="collapseBarIcon"></el-icon>
-    </li>
+    </li> -->
+    <slot></slot>
     <template v-for="(item,index) in menuList">
       <el-menu-item v-if="item.only" :index="item.menuurl" :key="index">
         <i class="fa " :class="item.iconCls"></i>
@@ -33,15 +34,19 @@
 
 <script>
   import menuList from '@/conifg'
+  import {mapState} from 'vuex'
   export default {
     data () {
       return {
-        isCollapse: false,
+        // isCollapse: false,
         menuList: [],
         ladyDefaultOpeneds: ''
       }
     },
     computed: {
+      ...mapState({
+        isCollapse: state => state.sidemenu.collapseState
+      }),
       collapseBarIcon: function () {
         let vm = this
         let direction = vm.isCollapse ? 'right' : 'left'
@@ -58,6 +63,10 @@
         let vm = this
         if (oldVal) {
           vm.initLadyMenu()
+          // console.info('kjasjfkjasf')
+          if (vm.ladyDefaultOpeneds) {
+            vm.$refs.ladyMenu.open(vm.ladyDefaultOpeneds || '')
+          }
         }
       }
     },

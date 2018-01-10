@@ -13,6 +13,9 @@
 
 <style lang="scss" scoped>
   .lady-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     .lady-icon {
       line-height: 60px;
       font-size: 38px;

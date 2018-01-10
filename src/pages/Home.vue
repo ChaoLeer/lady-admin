@@ -1,13 +1,15 @@
 <template>
   <el-container>
-    <el-header class="lady-header">
+    <!-- <div class="lady-aside-container">
+    </div> -->
+    <lady-aside>
       <lady-logo></lady-logo>
-      <lady-rightbar></lady-rightbar>
-    </el-header>
+    </lady-aside>
     <el-container>
-      <div class="lady-aside-container">
-        <lady-aside></lady-aside>
-      </div>
+      <el-header class="lady-header">
+        <lady-collapse></lady-collapse>
+        <lady-rightbar></lady-rightbar>
+      </el-header>
       <el-main id="ladyMain">
         <transition mode="out-in"  enter-active-class="zoomIn" leave-active-class="zoomOut">
           <router-view class="animated"></router-view>
@@ -25,6 +27,7 @@
 <script>
   import LadyLogo from '@/components/logo/logo.vue'
   import LadyAside from '@/components/aside/aside.vue'
+  import LadyCollapse from '@/components/collapse/collapse.vue'
   import LadyRightbar from '@/components/rightbar/rightbar.vue'
   var ct = null
   export default {
@@ -32,7 +35,8 @@
     components: {
       LadyLogo,
       LadyAside,
-      LadyRightbar
+      LadyRightbar,
+      LadyCollapse
     },
     data () {
       return {
