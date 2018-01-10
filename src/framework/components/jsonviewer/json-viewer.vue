@@ -12,8 +12,8 @@
 </template>
 <script>
   import $ from 'jquery'
-  import '../../lib/json-viewer/jquery.json-viewer.js'
-  import '../../lib/json-viewer/jquery.json-viewer.css'
+  import '@/framework/lib/json-viewer/jquery.json-viewer.js'
+  import '@/framework/lib/json-viewer/jquery.json-viewer.css'
   export default {
     data () {
       return {
@@ -49,9 +49,9 @@
       },
       status (flag) {
         let vm = this
-        !flag
-        ? vm.jsonPro(vm.jsonString)
-        : ''
+        if (!flag) {
+          vm.jsonPro(vm.jsonString)
+        }
       }
     },
     methods: {
@@ -109,6 +109,7 @@
     }
   }
 </script>
+
 <style lang="scss">
 .json-render-border{
   border: 1px dashed #cacaca;

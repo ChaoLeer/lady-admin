@@ -12,13 +12,19 @@ import Vue from 'vue'
 
 const cacheMessageDuration = 5
 const vm = new Vue()
-
+function message (msg, duration) {
+  if (global.cacheMessage) {
+    vm.$Message.warning(msg, duration)
+  }
+}
 function createAxios (baseUrl) {
   let headers = {
     'usertoken': getStorageValue('local', 'user').usertoken,
     'userid': getStorageValue('local', 'user').id
   }
-  global.orgid ? headers['orgid'] = getStorageValue('local', 'user').orgid : ''
+  if (global.orgid) {
+    headers['orgid'] = getStorageValue('local', 'user').orgid
+  }
   let instance = axios.create({
     baseURL: baseUrl,
     headers: {
@@ -44,12 +50,12 @@ function createAxios (baseUrl) {
     },
     function (res) {
       vm.$Spiner.finish()
-      global.cacheMessage ? vm.$Message.warning(res.response.data.message, cacheMessageDuration) : ''
+      message(res.response.data.message, cacheMessageDuration)
       if (res.response.data.code === '0') {
         if (res.response.data.message.indexOf('重新登录') > 0) {
           window.location.href = global.loginHost + '#/login'
         }
-        global.cacheMessage ? '' : vm.$Message.warning(res.response.data.message, cacheMessageDuration)
+        message(res.response.data.message, cacheMessageDuration)
       }
       return Promise.reject(res)
     }

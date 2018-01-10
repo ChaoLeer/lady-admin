@@ -9,10 +9,10 @@
 global.menuLevel = 3
 // 这是本地配置栗子
 var vuelists = {
-  local: false,
+  local: true,
   pageconfig: [
     {
-      'only': false,
+      'only': true,
       'name': 'home',
       'title': '首页',
       'iconCls': 'fa fa-home',
@@ -22,54 +22,54 @@ var vuelists = {
       'name': '54c12bcb0e1511e7858b60a44ce84a90',
       'title': '测试',
       'iconCls': 'fa fa-users',
-      'only': true,
+      'only': false,
       'children': [
         {
           'name': '54d5e8740e1511e7858b60a44ce84a90s',
           'title': '测试1',
           'iconCls': 'fa fa-user-circle-o',
-          'only': false,
+          'only': true,
           'menuurl': 'createdocfile'
         },
         {
           'name': '54d5e8740e1511e7858b60a4s4ce84a9s0',
           'title': '测试2',
           'iconCls': 'fa fa-user-circle-o',
-          'only': false,
+          'only': true,
           'menuurl': 'createdocfsiles'
         },
         {
           'name': '54d5e8740e1511e7858b60a44ce84a90sss',
           'title': '测试3',
           'iconCls': 'fa fa-user-circle-o',
-          'only': false,
+          'only': true,
           'menuurl': 'createdocfilea'
         },
         {
           'name': '54d5e8740e1511e7858b60a4s4ce84a9s0aa',
           'title': '测试4',
           'iconCls': 'fa fa-user-circle-o',
-          'only': false,
+          'only': true,
           'menuurl': 'createdocfsilebs'
         },
         {
           'name': '54d5e8740e1511e7858b60a44ce84a90ss',
           'title': '测试5',
           'iconCls': 'fa fa-user-circle-o',
-          'only': false,
+          'only': true,
           'menuurl': 'createdocfilve'
         },
         {
           'name': '54d5e8740e1511e7858b60a4s4ce84a9s0a',
           'title': '测试6',
           'iconCls': 'fa fa-user-circle-o',
-          'only': false,
+          'only': true,
           'menuurl': 'createdocfsicles'
         }
       ]
     },
     {
-      'only': false,
+      'only': true,
       'name': 'set',
       'title': '设置',
       'iconCls': 'fa fa-set',

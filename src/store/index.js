@@ -14,4 +14,3 @@ export default new Vuex.Store({
     example
   }
 })
-

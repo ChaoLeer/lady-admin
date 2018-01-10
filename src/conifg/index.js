@@ -1,6 +1,7 @@
 /**
  * 系统所有的配置项
  */
+import vuelists from './menu.config.js'
 // 子系统后台服务地址baseURL(仅读取菜单用 部署权限子系统\SSO的后台服务IP)
 // global.apiSSOBaseConfigURL = 'http://192.168.25.102'
 global.apiSSOBaseConfigURL = window.ladyConfig.apiSSOBaseConfigURL
@@ -25,3 +26,5 @@ global.cacheMessage = true
 
 // 是否开启标签，开启后面包屑导航将会失效, 默认不开启
 global.tabsModal = true
+
+export default vuelists

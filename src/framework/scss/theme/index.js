@@ -1,16 +1,18 @@
 /**
  * 主题风格
  */
-const green = require('!raw-loader!sass-loader!./_theme-green.scss')
-// const amber = require('!raw-loader!sass-loader!./_theme-amber.scss')
-const lightBlueA700 = require('!raw-loader!sass-loader!./_theme-lightBlueA700.scss')
-const orange = require('!raw-loader!sass-loader!./_theme-orange.scss')
-const teal600 = require('!raw-loader!sass-loader!./_theme-teal600.scss')
-const deeporange = require('!raw-loader!sass-loader!./_theme-deeporange.scss')
-const dark = require('!raw-loader!sass-loader!./_theme-dark.scss')
-const brown = require('!raw-loader!sass-loader!./_theme-brown.scss')
-const bluegrey = require('!raw-loader!sass-loader!./_theme-bluegrey.scss')
-const cyan800 = require('!raw-loader!sass-loader!./_theme-cyan800.scss')
+// const green = require('./_theme-green.scss')
+import green from './_theme-green.theme'
+// const amber = require('./_theme-amber.theme')
+import lightBlueA700 from './_theme-lightBlueA700.theme'
+import orange from './_theme-orange.theme'
+import teal600 from './_theme-teal600.theme'
+import deeporange from './_theme-deeporange.theme'
+import dark from './_theme-dark.theme'
+import brown from './_theme-brown.theme'
+import bluegrey from './_theme-bluegrey.theme'
+import cyan800 from './_theme-cyan800.theme'
+console.info(green)
 export default {
   green: {
     label: '绿色',

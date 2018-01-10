@@ -7,9 +7,13 @@
  */
 const oneOf = function (val, arr = [], name = '') {
   let flg = arr.includes(val)
-  flg ? '' : name === '' ? '' : console.error(`[Climb warn]: ${name} must be one of ${arr},but got ${val}`)
+  if (!flg) {
+    if (name !== '') {
+      console.error(`[Climb warn]: ${name} must be one of ${arr},but got ${val}`)
+    }
+  }
+  // flg ? '' : name === '' ? '' : console.error(`[Climb warn]: ${name} must be one of ${arr},but got ${val}`)
   return flg
 }
 
 export default oneOf
-

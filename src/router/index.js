@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import routes from './router.config'
 // import NProgress from 'nprogress'// 页面顶部加载进度条
 // import 'nprogress/nprogress.css'// 页面顶部加载进度条css
-import '@/conifg'
 import {setStorage, getStorageValue} from '@/framework/common/storage'
 Vue.use(Router)
 

@@ -128,5 +128,4 @@
       this.changeTableColumns()
     }
   }
-
 </script>

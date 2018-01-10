@@ -32,6 +32,7 @@
 </template>
 
 <script>
+  import menuList from '@/conifg'
   export default {
     data () {
       return {
@@ -68,32 +69,34 @@
       getLadyMenuData: function () {
         let vm = this
         setTimeout(function () {
-          vm.menuList = [{
-            only: true,
-            menuurl: 'test1',
-            iconCls: 'fa fa-edit',
-            title: '测试1'
-          }, {
-            iconCls: 'fa fa-user',
-            title: '测试2',
-            children: [{
-              menuurl: 'test21',
-              iconCls: 'fa fa-edit',
-              title: '测试2-1'
-            }]
-          }, {
-            iconCls: 'fa fa-home',
-            title: '测试3',
-            children: [{
-              menuurl: 'test31',
-              iconCls: 'fa fa-edit',
-              title: '测试3-1'
-            }, {
-              menuurl: 'test32',
-              iconCls: 'fa fa-user',
-              title: '测试3-2'
-            }]
-          }]
+          console.info(menuList)
+          vm.menuList = menuList.pageconfig
+          // [{
+          //   only: true,
+          //   menuurl: 'test1',
+          //   iconCls: 'fa fa-edit',
+          //   title: '测试1'
+          // }, {
+          //   iconCls: 'fa fa-user',
+          //   title: '测试2',
+          //   children: [{
+          //     menuurl: 'test21',
+          //     iconCls: 'fa fa-edit',
+          //     title: '测试2-1'
+          //   }]
+          // }, {
+          //   iconCls: 'fa fa-home',
+          //   title: '测试3',
+          //   children: [{
+          //     menuurl: 'test31',
+          //     iconCls: 'fa fa-edit',
+          //     title: '测试3-1'
+          //   }, {
+          //     menuurl: 'test32',
+          //     iconCls: 'fa fa-user',
+          //     title: '测试3-2'
+          //   }]
+          // }]
           vm.$nextTick(function () {
             vm.initLadyMenu()
             if (vm.ladyDefaultOpeneds) {

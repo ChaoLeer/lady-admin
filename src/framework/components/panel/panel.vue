@@ -17,7 +17,6 @@
       <transition class="animated"  mode="out-in"  enter-active-class=" zoomIn" leave-active-class="zoomOut">
         <div v-show="panelActive" :style="{height: height ==='auto' ? height : (height + 'px')}">
           <slot>
-
           </slot>
         </div>
       </transition>
@@ -58,5 +57,4 @@
       }
     }
   }
-
 </script>

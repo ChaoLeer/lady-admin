@@ -147,10 +147,18 @@
         console.info(vm.$el)
         console.info($now)
         // $now.className = $now.className.replace(' now', '')
-        type === 'incyear' ? vm.$set(vm.dateObj, 'year', parseInt(vm.dateObj.year) + parseInt(count)) : ''
-        type === 'decyear' ? vm.$set(vm.dateObj, 'year', parseInt(vm.dateObj.year) - parseInt(count)) : ''
-        type === 'incmonth' ? (parseInt(vm.dateObj.month) + parseInt(count)) >= 13 ? vm.$set(vm.dateObj, 'month', 1) : vm.$set(vm.dateObj, 'month', parseInt(vm.dateObj.month) + parseInt(count)) : ''
-        type === 'decmonth' ? (parseInt(vm.dateObj.month) - parseInt(count)) <= 0 ? vm.$set(vm.dateObj, 'month', 12) : vm.$set(vm.dateObj, 'month', parseInt(vm.dateObj.month) - parseInt(count)) : ''
+        if (type === 'incyear') {
+          vm.$set(vm.dateObj, 'year', parseInt(vm.dateObj.year) + parseInt(count))
+        }
+        if (type === 'decyear') {
+          vm.$set(vm.dateObj, 'year', parseInt(vm.dateObj.year) - parseInt(count))
+        }
+        if (type === 'incmonth') {
+          (parseInt(vm.dateObj.month) + parseInt(count)) >= 13 ? vm.$set(vm.dateObj, 'month', 1) : vm.$set(vm.dateObj, 'month', parseInt(vm.dateObj.month) + parseInt(count))
+        }
+        if (type === 'decmonth') {
+          (parseInt(vm.dateObj.month) - parseInt(count)) <= 0 ? vm.$set(vm.dateObj, 'month', 12) : vm.$set(vm.dateObj, 'month', parseInt(vm.dateObj.month) - parseInt(count))
+        }
         // vm.$set(vm.dateObj, 'month', vm.dateObj.month + 1)
       },
       selectDay: function (item) {
@@ -205,8 +213,8 @@
       }
     }
   }
-
 </script>
+
 <style lang="scss">
   .schedule-wrapper{
       display: inline-block;
