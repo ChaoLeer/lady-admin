@@ -72,7 +72,7 @@ var vuelists = {
       'only': true,
       'name': 'set',
       'title': '设置',
-      'iconCls': 'fa fa-set',
+      'iconCls': 'fa fa-cog',
       'menuurl': 'set'
     }
   ]

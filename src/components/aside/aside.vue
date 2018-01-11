@@ -5,7 +5,8 @@
  * @Last Modified time: 2017-12-15 16:37:45
  * @Description: 左侧导航菜单
  */
-<template>
+ <template>
+    <!-- @select="menuSelectHandler" -->
   <el-menu ref="ladyMenu" router unique-opened
     :default-active="ladyDefaultActive"
     class="lady-aside" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
@@ -14,7 +15,7 @@
     </li> -->
     <slot></slot>
     <template v-for="(item,index) in menuList">
-      <el-menu-item v-if="item.only" :index="item.menuurl" :key="index">
+      <el-menu-item v-if="item.only" :index="item.menuurl" :key="index" @click.native="menuSelectHandler(item)">
         <i class="fa " :class="item.iconCls"></i>
         <span slot="title">{{item.title}}</span>
       </el-menu-item>
@@ -23,7 +24,7 @@
           <i class="fa " :class="item.iconCls"></i>
           <span slot="title">{{item.title}}</span>
         </template>
-        <el-menu-item v-for="child,childIndex in item.children" :key="childIndex" :index="child.menuurl">
+        <el-menu-item v-for="child,childIndex in item.children" :key="childIndex" :index="child.menuurl" @click.native="menuSelectHandler(child)">
           <i class="fa " :class="child.iconCls"></i>
           <span slot="title">{{child.title}}</span>
         </el-menu-item>
@@ -33,19 +34,19 @@
 </template>
 
 <script>
-  import menuList from '@/conifg'
-  import {mapState} from 'vuex'
+  import {mapState, mapActions} from 'vuex'
   export default {
     data () {
       return {
         // isCollapse: false,
-        menuList: [],
+        // menuList: [],
         ladyDefaultOpeneds: ''
       }
     },
     computed: {
       ...mapState({
-        isCollapse: state => state.sidemenu.collapseState
+        isCollapse: state => state.sidemenu.collapseState,
+        menuList: state => state.sidemenu.menuList
       }),
       collapseBarIcon: function () {
         let vm = this
@@ -54,7 +55,6 @@
       },
       ladyDefaultActive: function () {
         let vm = this
-        console.info(vm.$route)
         return vm.initLadyMenu()
       }
     },
@@ -63,7 +63,6 @@
         let vm = this
         if (oldVal) {
           vm.initLadyMenu()
-          // console.info('kjasjfkjasf')
           if (vm.ladyDefaultOpeneds) {
             vm.$refs.ladyMenu.open(vm.ladyDefaultOpeneds || '')
           }
@@ -75,11 +74,11 @@
       vm.getLadyMenuData()
     },
     methods: {
+      ...mapActions(['addTab']),
       getLadyMenuData: function () {
         let vm = this
+        // vm.menuList = menuList.pageconfig
         setTimeout(function () {
-          console.info(menuList)
-          vm.menuList = menuList.pageconfig
           // [{
           //   only: true,
           //   menuurl: 'test1',
@@ -138,11 +137,8 @@
         }
       },
       handleOpen (key, keyPath) {
-        console.log(key)
-        console.info(keyPath)
       },
       handleClose (key, keyPath) {
-        console.log(key, keyPath)
       },
       // 展开收缩菜单
       toggleAsideHandler () {
@@ -151,6 +147,15 @@
         if (!vm.isCollapse && vm.menuList.length > 0 && vm.ladyDefaultOpeneds) {
           vm.$refs.ladyMenu.open(vm.ladyDefaultOpeneds || '')
         }
+      },
+      menuSelectHandler (item) {
+        let vm = this
+        let tab = {
+          menuid: item.name,
+          menuurl: item.menuurl,
+          name: item.title
+        }
+        vm.addTab(tab)
       }
     }
   }
@@ -158,7 +163,7 @@
 
 <style class="scss" scoped>
   .lady-aside:not(.el-menu--collapse) {
-    width: 200px;
+    min-width: 200px;
     min-height: 400px;
   }
   .lady-aside-bar{

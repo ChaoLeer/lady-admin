@@ -1,6 +1,6 @@
 <template>
   <span class="lady-sidebar-btn" @click="toggleAsideHandler">
-    <i class="fa fa-bars"></i>
+    <i class="fa fa-bars" :class="{'fa-rotate-90': isCollapse}"></i>
   </span>
 </template>
 
@@ -31,7 +31,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .lady-sidebar-btn{
     display: inline-block;
     width: 50px;
@@ -39,5 +39,9 @@
     line-height: 60px;
     text-align: center;
     font-size: 22px;
+    cursor: pointer;
+    .fa-rotate-90 {
+      transition: transform .25s ease;
+    }
   }
 </style>

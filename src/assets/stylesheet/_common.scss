@@ -2,6 +2,7 @@ html,body{
   height: 100%;
 }
 .lady-header{
+  position: relative;
   display: flex;
   flex-direction: row;
   padding: 0 8px 0 0;
@@ -14,23 +15,70 @@ html,body{
     justify-content: center;
   }
   .user-photo {
+    cursor: pointer;
     width: 40px;
     height: 40px;
     overflow: hidden;
     border-radius: 100px;
   }
 }
-.lady-aside-container{
-  .lady-aside.el-menu--collapse{
-    // border-right: 1px solid $ladytheme;
-    .el-tooltip,
-    .el-submenu__title{
-      text-align: center;
-    }
+.lady-aside.el-menu--collapse{
+  // border-right: 1px solid $ladytheme;
+  .el-tooltip,
+  .el-submenu__title{
+    text-align: center;
   }
+}
+.lady-aside-container{
 }
 .lady-aside-container .lady-aside .lady-aside-bar {
   color: $ladytheme;
+}
+.lady-main{
+  position: relative;
+  padding-top: 40px;
+}
+.lady-tabs-container{
+  position: absolute;
+  left: 50px;
+  right: 60px;
+
+}
+.lady-tabs-wrapper{
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  right: 15px;
+  height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  .el-tabs__nav-prev,
+  .el-tabs__nav-next{
+    display: none;
+  }
+  &.is-scroll{
+    left: 0px;
+    right: 0px;
+    padding: 0 18px;
+    .el-tabs__nav-prev,
+    .el-tabs__nav-next{
+      // position: absolute;
+      z-index: 2;
+      display: inline-block;
+      background-color: #fff;
+    }
+  }
+  .el-tag{
+    cursor: pointer;
+    margin-top: 6px;
+    margin-right: 8px;
+  }
+  .lady-tabs-list {
+    position: absolute;
+    // left: 10px;
+    width: auto;
+    transition: transform .3s ease-in-out;
+  }
 }
 .backtop {
   position: fixed;

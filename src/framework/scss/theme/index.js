@@ -12,7 +12,6 @@ import dark from './_theme-dark.theme'
 import brown from './_theme-brown.theme'
 import bluegrey from './_theme-bluegrey.theme'
 import cyan800 from './_theme-cyan800.theme'
-console.info(green)
 export default {
   green: {
     label: '绿色',

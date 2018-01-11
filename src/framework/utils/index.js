@@ -20,6 +20,8 @@ import * as Equal from './equal.js'
 import Throttle from './throttle.js'
 // 检测是否是数组中的某一项
 import oneOf from './oneOf.js'
+// 检测是否是数组中的某一项
+import Include from './arrInclude.js'
 
 export {
   Exception,
@@ -32,5 +34,6 @@ export {
   DispatchResize,
   Equal,
   Throttle,
-  oneOf
+  oneOf,
+  Include
 }
