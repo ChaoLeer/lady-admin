@@ -14,12 +14,21 @@
         <el-container>
           <el-header class="lady-header">
             <lady-collapse></lady-collapse>
-            <div class="lady-tabs-container">
+            <div class="lady-header__inner">
+              <el-breadcrumb v-if="breadcrumbRoot" class="lady-breadcrumb" separator-class="el-icon-arrow-right">
+                <el-breadcrumb-item :to="{ path: '/' + breadcrumbRoot.menuurl }">{{breadcrumbRoot.title}}</el-breadcrumb-item>
+                <el-breadcrumb-item v-for="bc,index in breadcrumbRoot.children" :key="index" :to="{ path: '/' + bc.menuurl }">{{bc.title}}</el-breadcrumb-item>
+              </el-breadcrumb>
+            </div>
+            <lady-rightbar></lady-rightbar>
+          </el-header>
+          <el-main class="lady-main" id="ladyMain">
+            <!-- <div class="lady-tabs-container"> -->
               <div class="lady-tabs-wrapper" :class="{'is-scroll': isScroll}" v-if="ladyTabs.length > 0" ref="ladyTabs">
-                <el-button @click="tabsHanler('prev')" type="text" class="el-tabs__nav-prev">
+                <el-button @click="tabsHandler('prev')" type="text" class="el-tabs__nav-prev">
                   <i class="el-icon-arrow-left"></i>
                 </el-button>
-                <el-button @click="tabsHanler('next')" type="text" class="el-tabs__nav-next">
+                <el-button @click="tabsHandler('next')" type="text" class="el-tabs__nav-next">
                   <i class="el-icon-arrow-right"></i>
                 </el-button>
                 <span ref="ladyTabsList" class="lady-tabs-list">
@@ -35,14 +44,13 @@
                   </el-tag>
                 </span>
               </div>
-            </div>
-            <lady-rightbar></lady-rightbar>
-          </el-header>
-          <el-main class="lady-main" id="ladyMain">
+            <!-- </div> -->
             <!-- {{currRouterPath}} -->
-            <transition mode="out-in"  enter-active-class="zoomIn" leave-active-class="zoomOut">
-              <router-view class="animated"></router-view>
-            </transition>
+            <div class="lady-main-inner">
+              <transition mode="out-in"  enter-active-class="zoomIn" leave-active-class="zoomOut">
+                <router-view class="animated"></router-view>
+              </transition>
+            </div>
             <transition mode="out-in"  enter-active-class="fadeInUp" leave-active-class="fadeOutDown">
               <div v-if="backTopStatus" class="backtop animated" @click="backTop">
                 <i class="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
@@ -93,7 +101,8 @@
     computed: {
       ...mapState({
         ladyTabs: state => state.sidemenu.tabsList,
-        isCollapse: state => state.sidemenu.collapseState
+        isCollapse: state => state.sidemenu.collapseState,
+        breadcrumbRoot: state => state.sidemenu.breadcrumbRoot
       }),
       currRouterPath: function () {
         let vm = this
@@ -115,7 +124,7 @@
         let vm = this
         setTimeout(function () {
           vm.$nextTick(function () {
-            vm.tabsHanler('prev')
+            vm.tabsHandler('prev')
           })
         }, 500)
       }
@@ -129,7 +138,7 @@
           $cont.onscroll = function () {
             vm.backTopStatus = $cont.scrollTop > 100
           }
-          vm.tabsHanler('prev')
+          vm.tabsHandler('prev')
         })
       },
       backTop: function () {
@@ -166,7 +175,7 @@
         vm.$refs.ladyTabsList.style.transform = `translateX(0px)`
         vm.$router.push('/' + tab.menuurl)
       },
-      tabsHanler: function (dir) {
+      tabsHandler: function (dir) {
         let vm = this
         if (vm.$refs.ladyTabs) {
           let ladyTabsEle = vm.$refs.ladyTabs

@@ -39,7 +39,7 @@
     data () {
       return {
         // isCollapse: false,
-        // menuList: [],
+        // ladyBreadcrumbRoot: {},
         ladyDefaultOpeneds: ''
       }
     },
@@ -74,7 +74,7 @@
       vm.getLadyMenuData()
     },
     methods: {
-      ...mapActions(['addTab']),
+      ...mapActions(['addTab', 'updateBreadpath']),
       getLadyMenuData: function () {
         let vm = this
         // vm.menuList = menuList.pageconfig
@@ -127,11 +127,25 @@
             vm.menuList[i].children.forEach(citm => {
               if (citm.menuurl === menuurl) {
                 tmpArr.push(citm)
+                vm.updateBreadpath({
+                  root: {...vm.menuList[i]},
+                  curr: [citm],
+                  menuurl: menuurl
+                })
               }
             })
             if (tmpArr.length > 0) {
               vm.ladyDefaultOpeneds = JSON.stringify(vm.menuList[i])
-              break
+              // break
+            }
+          } else {
+            if (vm.menuList[i].menuurl === menuurl) {
+              // console.info('...........')
+              vm.updateBreadpath({
+                root: {...vm.menuList[i]},
+                curr: [],
+                menuurl: menuurl
+              })
             }
           }
         }
@@ -162,8 +176,12 @@
 </script>
 
 <style class="scss" scoped>
+  .lady-aside {
+    /* transition: width .25s ease-in-out; */
+  }
   .lady-aside:not(.el-menu--collapse) {
-    min-width: 200px;
+    /* min-width: 40px; */
+    width: 200px;
     min-height: 400px;
   }
   .lady-aside-bar{

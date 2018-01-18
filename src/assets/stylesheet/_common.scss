@@ -7,6 +7,7 @@ html,body{
   flex-direction: row;
   padding: 0 8px 0 0;
   justify-content: space-between;
+  align-items: center;
   // border-bottom: 1px solid $ladytheme;
   border-bottom: 1px solid #e6e6e6;
   .lady-rightbar{
@@ -22,11 +23,22 @@ html,body{
     border-radius: 100px;
   }
 }
+.lady-header__inner{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.lady-breadcrumb{
+
+}
 .lady-aside.el-menu--collapse{
   // border-right: 1px solid $ladytheme;
   .el-tooltip,
   .el-submenu__title{
     text-align: center;
+  }
+  .lady-appname {
+    display: none;
   }
 }
 .lady-aside-container{
@@ -37,21 +49,24 @@ html,body{
 .lady-main{
   position: relative;
   padding-top: 40px;
+  display: flex;
+  padding: 0;
 }
 .lady-tabs-container{
   position: absolute;
   left: 50px;
   right: 60px;
-
 }
 .lady-tabs-wrapper{
   position: absolute;
   top: 8px;
-  left: 15px;
-  right: 15px;
+  left: 0;
+  right: 0;
+  padding: 0 15px;
   height: 40px;
   white-space: nowrap;
   overflow: hidden;
+  border-bottom: 1px solid #eaeaea;
   .el-tabs__nav-prev,
   .el-tabs__nav-next{
     display: none;
@@ -79,6 +94,11 @@ html,body{
     width: auto;
     transition: transform .3s ease-in-out;
   }
+}
+.lady-main-inner {
+  flex: 1;
+  margin-top: 50px;
+  overflow-y: auto;
 }
 .backtop {
   position: fixed;
@@ -109,7 +129,7 @@ html,body{
   // border-left: 1px solid #e7e7e7;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #bcbcbc;
+  background-color: #eaeaea;
   background-clip: padding-box;
   border: 3px solid hsla(0,0%,100%,0);
   border-top-width: 2px;

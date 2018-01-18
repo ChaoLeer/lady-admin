@@ -4,6 +4,7 @@ import { ArrRemove } from '@/framework/utils'
 // states
 const state = {
   collapseState: false,
+  breadcrumbRoot: null,
   tabsList: getStorageValue('local', 'sideMenu').tabsList || [],
   menuList: getStorageValue('local', 'sideMenu').menuList || []
 }
@@ -39,8 +40,15 @@ const mutations = {
    * @param{any}state
    * @param{any}path
    */
-  UPDATE_BREADPATH (state, path) {
-    state.breadpath = path
+  UPDATE_BREADPATH (state, obj) {
+    // console.info(obj)
+    let tempRoot = obj.root
+    if (obj.curr.length > 0) {
+      console.info(obj)
+      tempRoot.children = [...obj.curr]
+    }
+    state.breadcrumbRoot = tempRoot
+    setStorage('local', 'sideMenu', state)
   },
   /**
    * 更新当前面包屑(左侧菜单销毁的时候生效)
@@ -141,8 +149,9 @@ const actions = {
    * @param{any}state
    * @param{any}path
    */
-  updateBreadpath ({commit, state}, path) {
-    commit('UPDATE_BREADPATH', path)
+  updateBreadpath ({commit, state}, obj) {
+    // console.info(obj)
+    commit('UPDATE_BREADPATH', obj)
   },
   /**
    * 主内容区域渲染状态
