@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
+const packageJson = require('../package.json')
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : require('../config/prod.env')
@@ -118,7 +118,18 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    
+    // 添加注释banner
+    new webpack.BannerPlugin({
+      banner: '/*!\n' +
+      ' * ' + packageJson.name + ' v' + packageJson.version + ' \n' +
+      ' * (c) ' + new Date().getFullYear() + ' ChaoLeer \n' +
+      ' * Released under the MIT License.\n' +
+      ' */',
+      raw: true,
+      entryOnly: false
+    })
   ]
 })
 
