@@ -12,6 +12,7 @@ import 'normalize.css'
 import 'animate.css'
 import 'font-awesome/css/font-awesome.min.css'
 import '../static/font/ladyicon/iconfont.css'
+import '@/assets/stylesheet/index.scss'
 
 import '@/conifg'
 import '@/framework/components/index.js'

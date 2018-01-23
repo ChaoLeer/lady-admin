@@ -2,19 +2,11 @@
  * 系统所有的配置项
  */
 import vuelists from './menu.config.js'
-// 子系统后台服务地址baseURL(仅读取菜单用 部署权限子系统\SSO的后台服务IP)
-// global.apiSSOBaseConfigURL = 'http://192.168.25.102'
-global.apiSSOBaseConfigURL = window.ladyConfig.apiSSOBaseConfigURL
 
-// 子系统后台服务地址baseURL(业务调用 其他子系统更新自己的后台服务IP)
-global.apiBaseConfigURL = window.ladyConfig.apiBaseConfigURL
-
-// 单点登录系统登录URL(前端登录服务IP)
-global.loginHost = window.ladyConfig.loginHost
-
-// theme 默认主题,注: 此处只是设置一个默认的主题,且需为已配置好的主题名称,不可随意赋值,现支持的主题色名称如下
-// green, lightBlueA700, orange, teal600, deeporange, dark, dark, brown, bluegrey, cyan800
-global.theme = 'bluegrey'
+// 自动检测读取外部配置
+Object.keys(window.ladyConfig).forEach(item => {
+  global[item] = window.ladyConfig[item]
+})
 
 // 是否需要头信息带orgid
 global.orgid = false
